@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Trust Bank | Secure Banking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Simple Login Page -->
+    <div class="login-container" id="loginPage">
+        <div class="login-box">
+            <div class="login-header">
+                <div class="bank-icon-large">
+                    <i class="fas fa-university"></i>
+                </div>
+                <h1>Key Trust Bank</h1>
+                <p>Secure Banking Login</p>
+            </div>
+            
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <div class="password-container">
+                        <input type="password" class="form-input" id="password" placeholder="Enter your password" required>
+                        <button type="button" class="toggle-password" id="togglePassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Simple PIN Page -->
+    <div class="pin-container" id="pinPage">
+        <div class="pin-box">
+            <div class="pin-header">
+                <i class="fas fa-lock"></i>
+                <h2>Enter PIN</h2>
+            </div>
+            <p class="pin-instructions">Enter your 4-digit security PIN</p>
+            
+            <div class="pin-display">
+                <div class="pin-dots">
+                    <div class="pin-dot" id="dot1"></div>
+                    <div class="pin-dot" id="dot2"></div>
+                    <div class="pin-dot" id="dot3"></div>
+                    <div class="pin-dot" id="dot4"></div>
+                </div>
+            </div>
+            
+            <div class="pin-keypad">
+                <button type="button" class="pin-key" data-value="1">1</button>
+                <button type="button" class="pin-key" data-value="2">2</button>
+                <button type="button" class="pin-key" data-value="3">3</button>
+                <button type="button" class="pin-key" data-value="4">4</button>
+                <button type="button" class="pin-key" data-value="5">5</button>
+                <button type="button" class="pin-key" data-value="6">6</button>
+                <button type="button" class="pin-key" data-value="7">7</button>
+                <button type="button" class="pin-key" data-value="8">8</button>
+                <button type="button" class="pin-key" data-value="9">9</button>
+                <button type="button" class="pin-key pin-clear" data-value="clear">C</button>
+                <button type="button" class="pin-key" data-value="0">0</button>
+                <button type="button" class="pin-key pin-backspace" data-value="backspace">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard" id="dashboard">
+        <header>
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="brand-section">
+                        <a href="#" class="bank-logo-main" id="dashboardLogo">
+                            <div class="bank-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="bank-name">Key Trust Bank Plc</div>
+                        </a>
+                    </div>
+                    
+                    <div class="welcome-section">
+                        <div class="welcome-message">Welcome back, Prisca (Theodorus Lambertus Cornelis Janssen)</div>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-actions">
+                        <div class="hamburger-menu" id="hamburgerMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="overlay" id="overlay"></div>
+
+        <main class="container">
+            <!-- Balance Overview -->
+            <div class="balance-overview" id="balanceOverview">
+                <div class="balance-card">
+                    <div class="balance-header">
+                        <h3>Available Balance</h3>
+                        <div class="balance-amount">€151,726.05</div>
+                    </div>
+                    <div class="account-details">
+                        <div class="detail-item">
+                            <span class="detail-label">IBAN:</span>
+                            <span class="detail-value">IT43X054614400123226</span>
+                            <button class="copy-btn" title="Copy IBAN">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">BIC:</span>
+                            <span class="detail-value">NTSBESA2XXX</span>
+                            <button class="copy-btn" title="Copy BIC">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions-section">
+                    <div class="section-header">
+                        <h3>Quick Actions</h3>
+                    </div>
+                    <div class="quick-actions-grid">
+                        <div class="action-card" id="transferAction">
+                            <div class="action-icon">💸</div>
+                            <span class="action-text">Transfer</span>
+                        </div>
+                        <div class="action-card" id="depositAction">
+                            <div class="action-icon">💶</div>
+                            <span class="action-text">Deposit</span>
+                        </div>
+                        <div class="action-card" id="billsAction">
+                            <div class="action-icon">📃</div>
+                            <span class="action-text">Pay Bills</span>
+                        </div>
+                        <div class="action-card" id="withdrawAction">
+                            <div class="action-icon">🏧</div>
+                            <span class="action-text">Withdraw</span>
+                        </div>
+                        <div class="action-card" id="flightAction">
+                            <div class="action-icon">✈️</div>
+                            <span class="action-text">Book Flight</span>
+                        </div>
+                        <div class="action-card" id="cryptoAction">
+                            <div class="action-icon">₿</div>
+                            <span class="action-text">Buy Crypto</span>
+                        </div>
+                        <div class="action-card" id="supportAction">
+                            <div class="action-icon">💁</div>
+                            <span class="action-text">Support</span>
+                        </div>
+                        <div class="action-card" id="accountAction">
+                            <div class="action-icon">👤</div>
+                            <span class="action-text">My Account</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Virtual Card -->
+                <div class="cards-grid">
+                    <div class="virtual-card-section">
+                        <div class="section-header">
+                            <h3>Your Virtual Card</h3>
+                            <button class="show-details-btn" id="showCardDetails">
+                                <i class="fas fa-eye"></i>
+                                Show Details
+                            </button>
+                        </div>
+                        <div class="virtual-card">
+                            <div class="card-header">
+                                <div class="card-chip"></div>
+                                <div class="card-type">
+                                    <i class="fab fa-cc-visa"></i>
+                                </div>
+                            </div>
+                            <div class="card-number">•••• •••• •••• 4582</div>
+                            <div class="card-details">
+                                <div class="card-holder">PRISCA LEO (Theodorus Lambertus Cornelis Janssen)</div>
+                                <div class="card-expiry">06/29</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Transactions -->
+                    <div class="transactions-section">
+                        <div class="section-header">
+                            <h3>Recent Transactions</h3>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        <div class="transactions-list">
+                            <div class="transaction-item" id="transactionItem">
+                                <div class="transaction-icon">
+                                    <i class="fas fa-arrow-down"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">Incoming transfer from MEF Rome</div>
+                                    <div class="transaction-date">27/06/2025</div>
+                                </div>
+                                <div class="transaction-amount positive">+€151,700.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transfer Section -->
+            <div class="content-section" id="transferSection">
+                <div class="section-header with-back">
+                    <button class="back-btn" id="backFromTransfer">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2>Transfer Funds</h2>
+                </div>
+                
+                <div class="transfer-section">
+                    <div class="transfer-type">
+                        <button class="transfer-type-btn active" data-type="domestic">Domestic Transfer</button>
+                        <button class="transfer-type-btn" data-type="international">International Transfer</button>
+                    </div>
+                    
+                    <!-- Domestic Transfer -->
+                    <div class="transfer-option active" id="domesticTransfer">
+                        <form class="transfer-form" id="transferForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Account Name</label>
+                                    <input type="text" class="form-input" placeholder="Recipient's full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">IBAN</label>
+                                    <input type="text" class="form-input" placeholder="Recipient's IBAN" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Swift Code</label>
+                                    <input type="text" class="form-input" placeholder="Bank Swift Code" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Amount (€)</label>
+                                    <input type="number" class="form-input" placeholder="0.00" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Address</label>
+                                <input type="text" class="form-input" placeholder="Recipient's address" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Memo</label>
+                                <input type="text" class="form-input" placeholder="Transaction description">
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Initiate Transfer
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- International Transfer -->
+                    <div class="transfer-option" id="internationalTransfer">
+                        <form class="transfer-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Account Name</label>
+                                    <input type="text" class="form-input" placeholder="Recipient's full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Account Number</label>
+                                    <input type="text" class="form-input" placeholder="Recipient's account number" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Transfer Type</label>
+                                    <select class="form-select" required>
+                                        <option>ACH Transfer</option>
+                                        <option>Wire Transfer</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Currency</label>
+                                    <select class="form-select" required>
+                                        <option>EUR - Euro</option>
+                                        <option>USD - US Dollar</option>
+                                        <option>GBP - British Pound</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Amount</label>
+                                    <input type="number" class="form-input" placeholder="0.00" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Recipient Address</label>
+                                    <input type="text" class="form-input" placeholder="Recipient's address" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Bank Address</label>
+                                <input type="text" class="form-input" placeholder="Recipient bank's address" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Memo</label>
+                                <input type="text" class="form-input" placeholder="Transaction description">
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Initiate Transfer
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deposit Section -->
+            <div class="content-section" id="depositSection">
+                <div class="section-header with-back">
+                    <button class="back-btn" id="backFromDeposit">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2>Deposit Funds</h2>
+                </div>
+                
+                <div class="transfer-section">
+                    <form class="transfer-form" id="depositForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Amount (€)</label>
+                                <input type="number" class="form-input" placeholder="0.00" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Deposit Method</label>
+                                <select class="form-select" required>
+                                    <option value="">Select Method</option>
+                                    <option value="bank-transfer">Bank Transfer</option>
+                                    <option value="check">Check Deposit</option>
+                                    <option value="cash">Cash Deposit</option>
+                                    <option value="mobile">Mobile Deposit</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Bank Name</label>
+                                <input type="text" class="form-input" placeholder="Enter bank name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Account Number</label>
+                                <input type="text" class="form-input" placeholder="Enter account number">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Check Number (if applicable)</label>
+                                <input type="text" class="form-input" placeholder="Check number">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Deposit Date</label>
+                                <input type="date" class="form-input">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Memo/Description</label>
+                            <input type="text" class="form-input" placeholder="Deposit description">
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-money-bill-wave"></i>
+                            Initiate Deposit
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Pay Bills Section -->
+            <div class="content-section" id="billsSection">
+                <div class="section-header with-back">
+                    <button class="back-btn" id="backFromBills">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2>Pay Bills</h2>
+                </div>
+                
+                <div class="transfer-section">
+                    <form class="transfer-form" id="billsForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Bill Type</label>
+                                <select class="form-select" required>
+                                    <option value="">Select Bill Type</option>
+                                    <option value="electricity">Electricity</option>
+                                    <option value="water">Water</option>
+                                    <option value="internet">Internet</option>
+                                    <option value="phone">Phone</option>
+                                    <option value="credit-card">Credit Card</option>
+                                    <option value="loan">Loan Payment</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Amount (€)</label>
+                                <input type="number" class="form-input" placeholder="0.00" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Provider Name</label>
+                                <input type="text" class="form-input" placeholder="Service provider name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Account Number</label>
+                                <input type="text" class="form-input" placeholder="Your account number with provider" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Due Date</label>
+                                <input type="date" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Payment Date</label>
+                                <input type="date" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Memo/Description</label>
+                            <input type="text" class="form-input" placeholder="Payment description">
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-file-invoice"></i>
+                            Pay Bill
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Withdraw Section -->
+            <div class="content-section" id="withdrawSection">
+                <div class="section-header with-back">
+                    <button class="back-btn" id="backFromWithdraw">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2>Withdraw Funds</h2>
+                </div>
+                
+                <div class="withdraw-steps">
+                    <!-- Step 1: Bank/Card Selection -->
+                    <div class="withdraw-step active" id="withdrawStep1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <h3>Select Withdrawal Method</h3>
+                        </div>
+                        
+                        <div class="method-selection">
+                            <div class="method-options">
+                                <div class="method-option" data-method="bank">
+                                    <div class="method-icon">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                    <div class="method-info">
+                                        <div class="method-name">Bank Transfer</div>
+                                        <div class="method-desc">Transfer to another bank account</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="method-option" data-method="card">
+                                    <div class="method-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div class="method-info">
+                                        <div class="method-name">Card Withdrawal</div>
+                                        <div class="method-desc">Withdraw to your card</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="submit-btn next-step" id="nextToStep2" disabled>
+                            <i class="fas fa-arrow-right"></i>
+                            Next
+                        </button>
+                    </div>
+                    
+                    <!-- Step 2: Details Form -->
+                    <div class="withdraw-step" id="withdrawStep2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <h3>Enter Withdrawal Details</h3>
+                        </div>
+                        
+                        <form class="transfer-form" id="withdrawForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Amount (€)</label>
+                                    <input type="number" class="form-input" placeholder="0.00" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Withdrawal Method</label>
+                                    <input type="text" class="form-input" id="selectedMethod" readonly>
+                                </div>
+                            </div>
+                            
+                            <div id="bankDetails" class="method-details">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Bank Name</label>
+                                        <input type="text" class="form-input" placeholder="Recipient bank name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Account Number</label>
+                                        <input type="text" class="form-input" placeholder="Recipient account number" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Account Holder</label>
+                                        <input type="text" class="form-input" placeholder="Recipient full name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">IBAN</label>
+                                        <input type="text" class="form-input" placeholder="Recipient IBAN" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="cardDetails" class="method-details">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Card Number</label>
+                                        <input type="text" class="form-input" placeholder="Card number" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Card Holder</label>
+                                        <input type="text" class="form-input" placeholder="Card holder name" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Expiry Date</label>
+                                        <input type="text" class="form-input" placeholder="MM/YY" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">CVV</label>
+                                        <input type="text" class="form-input" placeholder="CVV" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Memo/Description</label>
+                                <input type="text" class="form-input" placeholder="Withdrawal description">
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary prev-step">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Back
+                                </button>
+                                <button type="submit" class="submit-btn">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                    Initiate Withdrawal
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Information -->
+            <div class="content-section" id="accountInfo">
+                <div class="section-header with-back">
+                    <button class="back-btn" id="backToDashboard">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2>Account Information</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Personal Details</h4>
+                        <div class="info-item">
+                            <span class="info-label">Full Name</span>
+                            <span class="info-value">Prisca Leo (Theodorus Lambertus Cornelis Janssen)</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Nationality</span>
+                            <span class="info-value">Italian</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Date of Birth</span>
+                            <span class="info-value">14/12/1984</span>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>Contact Information</h4>
+                        <div class="info-item">
+                            <span class="info-label">Email Address</span>
+                            <span class="info-value">Priscaleo488@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Phone Number</span>
+                            <span class="info-value">+3382773772</span>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>Account Details</h4>
+                        <div class="info-item">
+                            <span class="info-label">Account Type</span>
+                            <span class="info-value">Savings</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Account Number</span>
+                            <span class="info-value">•••• 7821</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Account Opened</span>
+                            <span class="info-value">15/03/2018</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="user-avatar-large">PL</div>
+                <div class="user-info-sidebar">
+                    <div class="user-name">Prisca Leo</div>
+                    <div class="user-email">Priscaleo488@gmail.com</div>
+                </div>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="#" class="sidebar-item active" data-section="balanceOverview">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a></li>
+                <li><a href="#" class="sidebar-item" data-section="accountInfo">
+                    <i class="fas fa-user"></i>
+                    <span>My Account</span>
+                </a></li>
+                <li><a href="#" class="sidebar-item" data-section="transferSection">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Transfers</span>
+                </a></li>
+                <li><a href="#" class="sidebar-item" data-section="depositSection">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Deposit</span>
+                </a></li>
+                <li><a href="#" class="sidebar-item" data-section="billsSection">
+                    <i class="fas fa-file-invoice"></i>
+                    <span>Pay Bills</span>
+                </a></li>
+                <li><a href="#" class="sidebar-item" data-section="withdrawSection">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <span>Withdraw</span>
+                </a></li>
+                <li><a href="#" class="sidebar-item" id="sidebarLogout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <!-- Card Details Modal -->
+    <div class="modal" id="cardDetailsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Card Details</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="card-details-list">
+                    <div class="detail-row">
+                        <span class="detail-label">Card Number</span>
+                        <span class="detail-value">4532 1488 5392 7854</span>
+                        <button class="copy-btn">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Expiry Date</span>
+                        <span class="detail-value">06/29</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">CVV</span>
+                        <span class="detail-value">384</span>
+                        <button class="copy-btn">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Card Holder</span>
+                        <span class="detail-value">PRISCA LEO</span>
+                    </div>
+                </div>
+                <div class="security-notice">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>For security reasons, never share your card details with anyone</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simple Error Modal -->
+    <div class="modal" id="errorModal">
+        <div class="modal-content">
+            <div class="modal-header error">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Notification</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="error-message">
+                    <p><strong>Important Notice:</strong></p>
+                    <p>Dear customer, you are due for the 1% periodic tax payment on your Savings account. Transactions would be completed immediately after payment.</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-secondary close-modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
